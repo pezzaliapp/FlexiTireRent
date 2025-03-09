@@ -1,4 +1,21 @@
 // app.js
+
+// Aggiornamento dinamico testo mesi
+const periodoSelect = document.getElementById('periodo');
+const periodoLabels = document.querySelectorAll('.periodoLabel');
+
+function aggiornaPeriodoLabel() {
+  const periodo = periodoSelect.value;
+  periodoLabels.forEach(label => {
+    label.textContent = `${periodo} mesi`;
+  });
+}
+
+periodoSelect.addEventListener('change', aggiornaPeriodoLabel);
+aggiornaPeriodoLabel();
+
+// Gestione submit form e generazione PDF
+
 document.getElementById('preventivoForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
@@ -10,7 +27,7 @@ document.getElementById('preventivoForm').addEventListener('submit', async funct
     const diametro = Number(document.getElementById('diametro').value);
     const quantita = Number(document.getElementById('quantita').value);
     const periodo = Number(document.getElementById('periodo').value);
-    
+
     const servizi = {
         deposito: document.getElementById('deposito').checked,
         noleggio: document.getElementById('noleggio').checked,
