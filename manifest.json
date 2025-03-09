@@ -1,1 +1,21 @@
-
+{
+  "name": "FlexiTireRent",
+  "short_name": "TireRent",
+  "description": "Calcolo preventivi per noleggio e deposito pneumatici",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#0056b3",
+  "icons": [
+    {
+      "src": "icon/FlexiTireRent-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/FlexiTireRent-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
