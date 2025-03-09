@@ -1,1 +1,97 @@
+/* style.css - FlexiTireRent */
 
+/* Reset base */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #005A87;
+    color: #fff;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+header img {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+header p {
+    font-size: 14px;
+}
+
+/* Form principale */
+#preventivoForm {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+input[type="number"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Checkboxes servizi */
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    header, #preventivoForm {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 13px;
+    }
+}
