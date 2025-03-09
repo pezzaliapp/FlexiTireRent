@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexiTireRent - Calcolo Preventivi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <img src="icon/FlexiTireRent-192.png" alt="Logo FlexiTireRent">
+        <h1>FlexiTireRent</h1>
+        <p>Calcola rapidamente il preventivo per noleggio e deposito pneumatici.</p>
+    </head>
 
+<body>
+    <form id="preventivoForm">
+
+        <h2>Dati Pneumatici</h2>
+        <input type="number" placeholder="Larghezza (mm)" required>
+        <input type="number" placeholder="Altezza (es. 55)" required>
+        <input type="number" placeholder="Diametro cerchio (pollici)" required>
+        <input type="number" placeholder="Quantità pneumatici" value="4" required>
+
+        <h3>Periodo Deposito/Noleggio</h3>
+        <select required>
+            <option value="stagionale">Stagionale (6 mesi)</option>
+            <option value="3">3 mesi</option>
+            <option value="6">6 mesi</option>
+            <option value="12">12 mesi</option>
+        </select>
+
+        <h3>Servizi Aggiuntivi</h3>
+        <label><input type="checkbox"> Deposito Stagionale</label>
+        <label><input type="checkbox"> Noleggio Pneumatici</label>
+        <label><input type="checkbox"> Trasporto</label>
+        <label><input type="checkbox"> Manutenzione/Pulizia</label>
+        <label><input type="checkbox"> Assicurazione</label>
+        <label><input type="checkbox"> Cauzione Deposito</label>
+
+        <h3>Carica Logo Aziendale</h3>
+        <input type="file" accept="image/*">
+
+        <button type="submit">Genera Preventivo</button>
+    </form>
+
+    <script src="app.js"></script>
+</body>
+</html>
