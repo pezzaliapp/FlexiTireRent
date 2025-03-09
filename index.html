@@ -32,20 +32,12 @@
         </select>
 
         <h3>Servizi Aggiuntivi</h3>
-        <label><input type="checkbox" id="deposito"> Deposito Stagionale</label>
-        <label><input type="checkbox" id="noleggio"> Noleggio Pneumatici</label>
-        <label><input type="checkbox" id="trasporto"> Trasporto</label>
-        <label><input type="checkbox" id="manutenzione"> Manutenzione/Pulizia</label>
-        <label><input type="checkbox" id="assicurazione"> Assicurazione</label>
-        <label><input type="checkbox" id="cauzione"> Cauzione Deposito</label>
-
-        <h3>Valori di calcolo (editabili)</h3>
-        <input type="number" id="valDeposito" placeholder="Costo Deposito (€/pneumatico/6 mesi)" value="25">
-        <input type="number" id="valNoleggio" placeholder="Costo Noleggio (€/pneumatico/6 mesi)" value="50">
-        <input type="number" id="valTrasporto" placeholder="Costo Trasporto (€)" value="20">
-        <input type="number" id="valManutenzione" placeholder="Costo Manutenzione (€/pneumatico)" value="15">
-        <input type="number" id="valAssicurazione" placeholder="Costo Assicurazione (€)" value="30">
-        <input type="number" id="valCauzione" placeholder="Cauzione Deposito (€)" value="100">
+        <label><input type="checkbox" id="deposito"> Deposito Stagionale (€<input type="number" id="valDeposito" value="25"> /pneumatico/6 mesi)</label>
+        <label><input type="checkbox" id="noleggio"> Noleggio Pneumatici (€<input type="number" id="valNoleggio" value="50"> /pneumatico/6 mesi)</label>
+        <label><input type="checkbox" id="trasporto"> Trasporto (€<input type="number" id="valTrasporto" value="20">)</label>
+        <label><input type="checkbox" id="manutenzione"> Manutenzione/Pulizia (€<input type="number" id="valManutenzione" value="15"> /pneumatico)</label>
+        <label><input type="checkbox" id="assicurazione"> Assicurazione (€<input type="number" id="valAssicurazione" value="30">)</label>
+        <label><input type="checkbox" id="cauzione"> Cauzione Deposito (€<input type="number" id="valCauzione" value="100">)</label>
 
         <h3>Carica Logo Aziendale</h3>
         <input type="file" accept="image/*">
