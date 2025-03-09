@@ -4,7 +4,7 @@ document.getElementById('preventivoForm').addEventListener('submit', async funct
 
     const { jsPDF } = window.jspdf;
 
-    // Raccolta dati
+    // Raccolta dati pneumatici
     const larghezza = Number(document.getElementById('larghezza').value);
     const altezza = Number(document.getElementById('altezza').value);
     const diametro = Number(document.getElementById('diametro').value);
@@ -20,21 +20,28 @@ document.getElementById('preventivoForm').addEventListener('submit', async funct
         cauzione: document.getElementById('cauzione').checked
     };
 
-    // Calcolo preventivo
+    // Valori editabili dei costi
+    const costoDeposito = Number(document.getElementById('valDeposito').value);
+    const costoNoleggio = Number(document.getElementById('valNoleggio').value);
+    const costoTrasporto = Number(document.getElementById('valTrasporto').value);
+    const costoManutenzione = Number(document.getElementById('valManutenzione').value);
+    const costoAssicurazione = Number(document.getElementById('valAssicurazione').value);
+    const costoCauzione = Number(document.getElementById('valCauzione').value);
+
+    // Calcolo preventivo finale
     let costoTotale = 0;
-    if (servizi.deposito) costoTotale += 25 * quantita * (periodo / 6);
-    if (servizi.noleggio) costoTotale += 50 * quantita * (periodo / 6);
-    if (servizi.trasporto) costoTotale += 20;
-    if (servizi.manutenzione) costoTotale += 15 * quantita;
-    if (servizi.assicurazione) costoTotale += 30;
-    if (servizi.cauzione) costoTotale += 100;
+    if (servizi.deposito) costoTotale += costoDeposito * quantita * (periodo / 6);
+    if (servizi.noleggio) costoTotale += costoNoleggio * quantita * (periodo / 6);
+    if (servizi.trasporto) costoTotale += costoTrasporto;
+    if (servizi.manutenzione) costoTotale += costoManutenzione * quantita;
+    if (servizi.assicurazione) costoTotale += costoAssicurazione;
+    if (servizi.cauzione) costoTotale += costoCauzione;
 
     const iva = costoTotale * 0.22;
     const totaleConIVA = costoTotale + iva;
 
-    // Creazione PDF
+    // Generazione PDF
     const doc = new jsPDF();
-
     doc.setFontSize(16);
     doc.text("Preventivo FlexiTireRent", 20, 20);
 
@@ -63,7 +70,7 @@ document.getElementById('preventivoForm').addEventListener('submit', async funct
 
     doc.save("Preventivo_FlexiTireRent.pdf");
 
-    // Messaggio WhatsApp
+    // Invio messaggio WhatsApp
     const messaggio = 
         `*Preventivo FlexiTireRent*%0A` +
         `Misure Pneumatici: ${larghezza}/${altezza} R${diametro}%0A` +
@@ -75,6 +82,5 @@ document.getElementById('preventivoForm').addEventListener('submit', async funct
         `*Totale IVA inclusa:* ${totaleConIVA.toFixed(2)}€`;
 
     const urlWhatsApp = `https://wa.me/?text=${messaggio}`;
-    
     window.open(urlWhatsApp, '_blank');
 });
