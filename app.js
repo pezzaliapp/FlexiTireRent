@@ -47,9 +47,12 @@ document.getElementById('preventivoForm').addEventListener('submit', async funct
     doc.text("Servizi Inclusi:", 20, y);
     y += 10;
 
+    let serviziInclusi = '';
     for (const [key, value] of Object.entries(servizi)) {
         if (value) {
-            doc.text(`- ${key.charAt(0).toUpperCase() + key.slice(1)}`, 30, y);
+            const nomeServizio = key.charAt(0).toUpperCase() + key.slice(1);
+            doc.text(`- ${nomeServizio}`, 30, y);
+            serviziInclusi += `- ${nomeServizio}%0A`;
             y += 10;
         }
     }
@@ -59,4 +62,19 @@ document.getElementById('preventivoForm').addEventListener('submit', async funct
     doc.text(`Totale IVA Inclusa: ${totaleConIVA.toFixed(2)} €`, 20, y+30);
 
     doc.save("Preventivo_FlexiTireRent.pdf");
+
+    // Messaggio WhatsApp
+    const messaggio = 
+        `*Preventivo FlexiTireRent*%0A` +
+        `Misure Pneumatici: ${larghezza}/${altezza} R${diametro}%0A` +
+        `Quantità: ${quantita}%0A` +
+        `Periodo: ${periodo} mesi%0A` +
+        `Servizi inclusi:%0A${serviziInclusi}` +
+        `Costo Netto: ${costoTotale.toFixed(2)}€%0A` +
+        `IVA 22%: ${iva.toFixed(2)}€%0A` +
+        `*Totale IVA inclusa:* ${totaleConIVA.toFixed(2)}€`;
+
+    const urlWhatsApp = `https://wa.me/?text=${messaggio}`;
+    
+    window.open(urlWhatsApp, '_blank');
 });
